@@ -22,7 +22,7 @@ public:
     GameState getGameState();
 
 private:
-FieldState field = FieldState::Covered;
 GameState gameState = GameState::Running;
+std::vector<std::vector<FieldState>> container_of_fieldStates;
 
 };

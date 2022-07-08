@@ -1,6 +1,7 @@
 #include "Board.hpp"
 
-Board::Board(int, int,const std::vector<Coordinate> &coordinates)
+Board::Board(int x, int y,const std::vector<Coordinate> &coordinates) : 
+    container_of_fieldStates(x,std::vector<FieldState>(y, FieldState::Covered))
 {
     if(!coordinates.empty())
     {
@@ -8,17 +9,17 @@ Board::Board(int, int,const std::vector<Coordinate> &coordinates)
     }
 }
 
-FieldState Board::getFieldState(const Coordinate &) const
+FieldState Board::getFieldState(const Coordinate& coordinate) const
 {
-   return field;
+   return container_of_fieldStates.at(coordinate.x).at(coordinate.y);
 }
 
 
-void Board::uncover(const Coordinate &)
+void Board::uncover(const Coordinate& coordinate)
 {
-    field = FieldState::Mines_0;
-    gameState = GameState::Victory;
+    container_of_fieldStates.at(coordinate.x).at(coordinate.y) = FieldState::Mines_0;
 
+    gameState = GameState::Victory;
 }
 
 GameState Board::getGameState()
