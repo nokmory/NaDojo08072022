@@ -1,25 +1,15 @@
 #include "gtest/gtest.h"
+#include "Board.hpp"
 
-class Board
+
+TEST(MinesweeperTests,Asd)
 {
-    public:
-   Board(int ,int )
-   {
+    Board board(1,1);
 
-   }
 
 };
 
-
-TEST(environmentTest,GameBoardGenerateSucces)
+TEST(MinesweeperTests,GameBoardGenerateSucces)
 {
     Board board(1,1);
-}
-
-
-// TEST(environmentTest,GameBoardGenerateSucces)
-// {
-
-//     ASSERT_TRUE(false);
-// }
-
+};
