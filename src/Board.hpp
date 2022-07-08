@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-enum class FieldState{Covered};
+enum class FieldState{Covered, Uncovered};
 
 struct Coordinate
 {
@@ -16,5 +16,6 @@ public:
    Board(int ,int,const std::vector<Coordinate> &);
 
     FieldState getFieldState(const Coordinate &);
+    void uncover(const Coordinate &);
 
 };
