@@ -11,9 +11,9 @@ TEST(Board2on2WithMines, gameIsWonAfterNotUncoveringAllFieldsWithMinesP)
 {
     std::vector<Coordinate> coordinates{ {0,0} };
     Board board(2,2, coordinates);
-    board.uncover(1,1);
+    board.uncover( {1,1 });
 
-    EXPECT_EQ(board.getGameState(), GameState::Running);
+    EXPECT_EQ(board.getFieldState({0,0}), FieldState::Covered);
 }
 
 
