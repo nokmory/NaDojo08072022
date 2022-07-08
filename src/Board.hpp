@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 struct Coordinate
 {
@@ -10,7 +11,7 @@ struct Coordinate
 class Board
 {
 public:
-   Board(int ,int );
+   Board(int ,int,std::vector<Coordinate>);
 
    void load_mines_coordinates(std::vector<Coordinate> coordinates);
 
