@@ -2,6 +2,18 @@
 #include "Board.hpp"
 
 
+TEST(MinesweeperTests, gameIsEndingAfterFailCondition)
+{
+    std::vector<Coordinate> coordinates;
+    Board board(1,1, coordinates);
+    
+    board.uncover(Coordinate{0,0});
+    
+
+    EXPECT_EQ(board.getGameState(), GameState::Victory);
+}
+
+
 TEST(MinesweeperTests, gameIsRunningRightAfterCreation)
 {
     std::vector<Coordinate> coordinates;

@@ -3,7 +3,7 @@
 
 enum class FieldState{Covered, Mines_0};
 
-enum class GameState{Running};
+enum class GameState{Running, Victory};
 
 struct Coordinate
 {
@@ -23,5 +23,6 @@ public:
 
 private:
 FieldState field = FieldState::Covered;
+GameState gameState = GameState::Running;
 
 };
