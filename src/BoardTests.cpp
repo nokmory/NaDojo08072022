@@ -7,7 +7,7 @@ TEST(MinesweeperTests, canPlayerSeeTheBoard)
     std::vector<Coordinate> coordinates;
     Board board(1,1, coordinates);
 
-    EXPECT_TRUE(board.getFieldState(0, 0) == FieldState::Covered);
+    EXPECT_EQ(board.getFieldState(Coordinate{0, 0}), FieldState::Covered);
 }
 
 

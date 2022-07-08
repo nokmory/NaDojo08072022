@@ -4,6 +4,9 @@ Board::Board(int, int,const std::vector<Coordinate> &)
 {
     
 
-};
+}
 
-FieldState Board::getFieldState(int , int);
+FieldState Board::getFieldState(const Coordinate &)
+{
+   return FieldState::Covered;
+}
