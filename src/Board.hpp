@@ -15,7 +15,7 @@ class Board
 public:
    Board(int ,int,const std::vector<Coordinate> &);
 
-    FieldState getFieldState(const Coordinate &);
+    FieldState getFieldState(const Coordinate &) const;
     void uncover(const Coordinate &);
 
 private:

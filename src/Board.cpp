@@ -6,7 +6,7 @@ Board::Board(int, int,const std::vector<Coordinate> &)
 
 }
 
-FieldState Board::getFieldState(const Coordinate &)
+FieldState Board::getFieldState(const Coordinate &) const
 {
    return field;
 }
