@@ -2,10 +2,14 @@
 #include "Board.hpp"
 
 
+
 TEST(MinesweeperTests,Asd)
 {
     Board board(1,1);
 
+    std::vector<Coordinate> coordinates;
+
+    board.load_mines_coordinates(coordinates);
 
 };
 
