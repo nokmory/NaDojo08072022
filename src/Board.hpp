@@ -3,6 +3,8 @@
 
 enum class FieldState{Covered, Mines_0};
 
+enum class GameState{Running};
+
 struct Coordinate
 {
     int x;
@@ -17,6 +19,7 @@ public:
 
     FieldState getFieldState(const Coordinate &) const;
     void uncover(const Coordinate &);
+    GameState getGameState();
 
 private:
 FieldState field = FieldState::Covered;

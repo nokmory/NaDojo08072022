@@ -16,3 +16,8 @@ void Board::uncover(const Coordinate &)
 {
     field = FieldState::Mines_0;
 }
+
+GameState Board::getGameState()
+{
+    return GameState::Running;
+}
