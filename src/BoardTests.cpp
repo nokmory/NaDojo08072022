@@ -1,46 +1,62 @@
 #include "gtest/gtest.h"
 #include "Board.hpp"
 
-
-TEST(MinesweeperTests, gameIsWonAfterUncoverAllFieldsWithoutMines)
+struct Board1on1WithoutMines : public testing::Test
 {
     std::vector<Coordinate> coordinates;
-    coordinates.push_back({0,0});
-    Board board(1,1, coordinates);
+    Board board{1,1, coordinates};
+};
 
-    EXPECT_EQ(board.getGameState(), GameState::Victory);
-}
-
-TEST(MinesweeperTests, gameIsWonAfterUncoverAllFieldsWithoutMines)
+TEST(Board2on2WithMines, gameIsWonAfterNotUncoveringAllFieldsWithMinesP)
 {
-    std::vector<Coordinate> coordinates;
-    Board board(1,1, coordinates);
-    board.uncover(Coordinate{0,0});
+    std::vector<Coordinate> coordinates{ {0,0} };
+    Board board(2,2, coordinates);
+    board.uncover(1,1);
 
-    EXPECT_EQ(board.getGameState(), GameState::Victory);
-}
-
-
-TEST(MinesweeperTests, gameIsRunningRightAfterCreation)
-{
-    std::vector<Coordinate> coordinates;
-    Board board(1,1, coordinates);
     EXPECT_EQ(board.getGameState(), GameState::Running);
 }
 
 
-TEST(MinesweeperTests, canPlayerUncoverTheField)
+// TEST(Board2on2WithMines, gameIsWonAfterNotUncoveringAllFieldsWithMinesP)
+// {
+//     std::vector<Coordinate> coordinates{ {0,0} };
+//     Board board(2,2, coordinates);
+
+//     EXPECT_EQ(board.getGameState(), GameState::Running);
+// }
+
+
+TEST(Board1on1WithMines, gameIsWonAfterNotUncoveringAllFieldsWithMines)
 {
-    std::vector<Coordinate> coordinates;
+    std::vector<Coordinate> coordinates{ {0,0} };
     Board board(1,1, coordinates);
+
+    EXPECT_EQ(board.getGameState(), GameState::Victory);
+}
+
+TEST_F(Board1on1WithoutMines, gameIsWonAfterUncoverAllFieldsWithoutMines)
+{
+    board.uncover(Coordinate{0,0});
+
+    EXPECT_EQ(board.getGameState(), GameState::Victory);
+}
+
+
+TEST_F(Board1on1WithoutMines, gameIsRunningRightAfterCreation)
+{
+
+    EXPECT_EQ(board.getGameState(), GameState::Running);
+}
+
+
+TEST_F(Board1on1WithoutMines, canPlayerUncoverTheField)
+{
+
     board.uncover(Coordinate{0,0});
     EXPECT_EQ(board.getFieldState(Coordinate{0, 0}), FieldState::Mines_0);
 }
 
-TEST(MinesweeperTests, canPlayerSeeTheBoard)
+TEST_F(Board1on1WithoutMines, canPlayerSeeTheBoard)
 {
-    std::vector<Coordinate> coordinates;
-    Board board(1,1, coordinates);
-
     EXPECT_EQ(board.getFieldState(Coordinate{0, 0}), FieldState::Covered);
 }

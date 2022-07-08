@@ -1,9 +1,11 @@
 #include "Board.hpp"
 
-Board::Board(int, int,const std::vector<Coordinate> &)
+Board::Board(int, int,const std::vector<Coordinate> &coordinates)
 {
-
-
+    if(!coordinates.empty())
+    {
+        gameState = GameState::Victory;
+    }
 }
 
 FieldState Board::getFieldState(const Coordinate &) const
