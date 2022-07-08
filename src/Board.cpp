@@ -1,12 +1,7 @@
 #include "Board.hpp"
 
-Board::Board(int, int,std::vector<Coordinate>)
+Board::Board(int, int,const std::vector<Coordinate> &)
 {
+    
 
 };
-
-
-   void Board::load_mines_coordinates(std::vector<Coordinate> )
-   {
-       
-   }

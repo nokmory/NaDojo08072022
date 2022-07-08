@@ -11,8 +11,6 @@ struct Coordinate
 class Board
 {
 public:
-   Board(int ,int,std::vector<Coordinate>);
-
-   void load_mines_coordinates(std::vector<Coordinate> coordinates);
+   Board(int ,int,const std::vector<Coordinate> &);
 
 };
