@@ -15,9 +15,11 @@ FieldState Board::getFieldState(const Coordinate &) const
 void Board::uncover(const Coordinate &)
 {
     field = FieldState::Mines_0;
+    gameState = GameState::Victory;
+
 }
 
 GameState Board::getGameState()
 {
-    return GameState::Running;
+    return gameState;
 }
